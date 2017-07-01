@@ -1,0 +1,141 @@
+var tasksList = []; // Ma bibliotheque de tache
+var idTask = 0;
+
+ function $(ID) 
+ {
+            return document.getElementById(ID);
+ }
+
+
+function addTask (name,desc,date,hour)
+{
+    var myTask = {  "id":idTask,
+                    "name" : name,       // JSON  cree un element avec differentes donnees //
+                    "desc" : desc,
+                    "date" : date,
+                    "hour" : hour };
+    
+
+    tasksList.push(myTask); //je range dans la bibliotheque
+    
+    idTask=idTask + 1;
+
+    console.log(tasksList);
+    
+    viewTasks();
+    vider();
+
+    return myTask.id;
+}
+
+function removeTask (id)
+{
+    swal({
+  title: "Are you sure?",
+  text: "You will not be able to recover this task !",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Yes, delete it!",
+  cancelButtonText: "No, cancel!",
+  closeOnConfirm: false,
+  closeOnCancel: false
+},
+function(isConfirm){
+  if (isConfirm) {   var newTasks = [];
+    for(idTask=0;idTask<tasksList.length;idTask++)
+    {
+        if(tasksList[idTask].id != id)
+        {
+            newTasks.push(tasksList[idTask]);
+        }
+    }
+     console.log(newTasks);
+    tasksList=newTasks;
+
+    console.log(tasksList);
+    viewTasks();
+    swal("Deleted!", "Your Task has been deleted.", "success");
+  } else {
+    swal("Cancelled", "Your Task is safe :)", "error");
+  }
+});
+ 
+   
+
+    
+    
+    
+} 
+
+function viewTasks ()
+
+{
+    
+   var myUl = $('myTaskList');
+
+   while(el = myUl.firstChild)
+        el.parentNode.removeChild(el);
+  
+
+   for(idTask=0;idTask<tasksList.length;idTask++)
+   {
+      var myLi = document.createElement('li');
+      var myButton = document.createElement('button');
+      myButton.id = tasksList[idTask].id;
+      myButton.className = 'glyphicon glyphicon-remove-sign';
+      myButton.addEventListener("click", function(){
+                    removeTask(this.id);
+               });
+
+      var myH1= document.createElement('h1');
+      myH1.innerHTML=tasksList[idTask].name ;
+
+      var myP= document.createElement("p");
+      myP.innerHTML= tasksList[idTask].desc;
+
+      var mySpan= document.createElement('span');
+      mySpan.innerHTML = tasksList[idTask].date + "<br/>" + "&nbsp;"+tasksList[idTask].hour;
+
+      myLi.appendChild(myButton);
+      myLi.appendChild(myH1);
+      myLi.appendChild(myP);
+      myLi.appendChild(mySpan);
+      myUl.appendChild(myLi);
+      
+     
+   }
+   storeTasks();
+
+}
+
+function storeTasks() 
+{  
+    var strStorageTasks = JSON.stringify(tasksList);
+    localStorage.setItem("myTasks",strStorageTasks);
+
+    console.log(localStorage.getItem("myTasks"));
+}
+
+function loadTasks() /*{
+                      if (strStorageTasks != ''){
+                      tasksList=JSON.parse(strStorageTasks);
+                     }
+                     else */{
+                        var strStorageTasks = localStorage.getItem("myTasks");
+                        if(strStorageTasks != '') {
+                        tasksList =  JSON.parse(strStorageTasks)};
+                     
+    viewTasks();  
+}/*}*/
+function vider()
+{
+	$("usr").value = "";
+    $("desc").value = "";
+    $("date").value = "";
+    $("txthour").value = "";
+	return false;
+};
+
+
+
