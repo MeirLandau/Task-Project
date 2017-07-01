@@ -1,0 +1,140 @@
+
+
+body {
+        color:black;
+        background-color:white;
+        background-image:url("../images/tile.jpg");
+        background-attachment:fixed;
+     }
+
+.title {
+        text-align:center;
+        margin-top:3%;
+       }
+
+
+.title:hover {
+        -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+        filter: blur(1px);;
+       }
+
+.container{background-image:url("../images/formbg.jpg");
+           width:50%;
+           height:80%;
+           margin-top:2%;
+           
+           }
+
+#usr  {
+      font-family: Chalkduster;
+        color:#000080;
+        margin-top:2%;
+        margin-left:10%;
+        border:none;
+        background-color: transparent; 
+}
+#desc {
+      font-family: Chalkduster; 
+        color:purple;
+        margin-top:0.7%;
+        margin-left:10%;
+        border:none;
+        background-color: transparent; 
+       }
+#third {
+        margin-left:1%;
+      }
+
+label {
+        font-family: Chalkduster;
+
+}
+#date{
+        font-family: Chalkduster;
+        color:purple;
+        opacity: 0.8;
+        border:none;
+        
+       }
+#txthour{
+        font-family: Chalkduster;
+        color:purple;
+        opacity: 0.8;
+        border:none;
+        }
+
+.for {
+        margin-left:10%;
+
+}
+
+#btn {
+        margin-left:70%;
+        padding:1%;
+        transition: all .4s ease-in-out;
+
+}
+#btn:hover {
+                        transform: scale(2.3);
+
+}
+#myTaskList li {
+        
+        display: inline-block;
+        background-image: url("../images/notebg.png") ;
+        background-repeat: no-repeat;
+        width:300px;
+        height:300px;
+        padding-top:20px;
+        margin-top:20px;
+         
+               }
+#myTaskList li h1 {
+        font-size: 20px;
+        font-style: italic;
+        margin-left:15px;
+        margin-top:-5px;
+        padding: 2px;
+        height: 50px;
+        max-height: 50px;
+         color:#000080;
+        font-family: Chalkduster;
+        white-space:normal;width:150px;
+         -ms-word-break:break-all;
+    word-break: break-all;
+    overflow: scroll;
+}
+#myTaskList li p {
+        font-family: Chalkduster;
+        color:purple;
+        max-height: 100px;
+        height: 100px;
+         -ms-word-break: break-all;
+         word-break: break-all;
+       white-space:normal;width:160px; 
+        margin-left:10px;
+        overflow: scroll;
+}
+
+#myTaskList li span {
+        margin-left: 10px;
+        color:red;
+        font-weight: bold;
+        font-family: Chalkduster;
+                    }
+
+.glyphicon {
+
+        margin-left:155px;
+        margin-top:0px;
+        background-color: transparent;
+        border:none;
+       transition: all .4s ease-in-out;
+        
+
+}
+.glyphicon:hover{
+
+transform: scale(3.3);}
+
+
